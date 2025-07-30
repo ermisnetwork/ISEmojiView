@@ -313,8 +313,8 @@ extension EmojiView {
         }
         
         let views = [
-            "emojiCollectionView": emojiCollectionView,
-            "bottomContainerView": bottomContainerView
+            "bottomContainerView": bottomContainerView,
+            "emojiCollectionView": emojiCollectionView
         ]
         
         addConstraints(
@@ -337,7 +337,7 @@ extension EmojiView {
         
         addConstraints(
             NSLayoutConstraint.constraints(
-                withVisualFormat: "V:|-5-[emojiCollectionView]-(0)-[bottomContainerView(44)]",
+                withVisualFormat: "V:|-5-[bottomContainerView(44)]-[emojiCollectionView]-(0)-|",
                 options: NSLayoutConstraint.FormatOptions(rawValue: 0),
                 metrics: nil,
                 views: views
@@ -351,7 +351,7 @@ extension EmojiView {
         }
         
         let bottomConstraint = NSLayoutConstraint(
-            item: bottomContainerView,
+            item: emojiCollectionView,
             attribute: .bottom,
             relatedBy: .equal,
             toItem: self,
